@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>E-Sport Heiligenstadt – Villa Lampe & 1. SC 1911</title>
 <meta name="description" content="Ideenpapier: E-Sport für junge Menschen in Heilbad Heiligenstadt – gemeinsam von Villa Lampe und 1. SC 1911 Heiligenstadt.">
+<!-- Entwurf: nicht in Suchmaschinen aufnehmen. Vor dem offiziellen Start entfernen. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#d90f16">
+
+<!-- Link-Vorschau (WhatsApp, Signal, Facebook, Teams …) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="E-Sport Heiligenstadt">
+<meta property="og:title" content="E-Sport für Heiligenstadt – Villa Lampe × 1. SC 1911">
+<meta property="og:description" content="Zocken, trainieren, im Team gewinnen – und danach gemeinsam auf den Platz. Ein Ideenpapier für junge Menschen in Heilbad Heiligenstadt.">
+<meta property="og:url" content="https://tecko1985.github.io/villa-lampe-esport/">
+<meta property="og:image" content="https://tecko1985.github.io/villa-lampe-esport/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="E-Sport für Heiligenstadt – Villa Lampe und 1. SC 1911">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +44,7 @@
   --rand:#e3e3e8;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--weiss);color:var(--text);font:400 17px/1.6 "Source Sans 3",system-ui,"Segoe UI",Arial,sans-serif}
 img{max-width:100%;display:block}
 a{color:var(--rot)}
@@ -32,12 +53,10 @@ h2{font-size:clamp(28px,4vw,40px);text-transform:uppercase}
 h3{font-size:22px}
 .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
 .sr{position:absolute;left:-9999px}
+.nur-druck{display:none}
 
-/* ---- Kopf wie Villa Lampe: Metaleiste, Logos, rote Menüleiste ---- */
-.meta{font-size:14px;text-align:right;padding-top:12px}
-.meta a{color:var(--text);margin-left:14px}
-.meta .pill{display:inline-block;background:var(--rot);color:#fff;text-decoration:none;font-weight:700;padding:6px 14px;border-radius:4px;margin-left:16px}
-.kopf{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:14px;padding-bottom:18px;flex-wrap:wrap}
+/* ---- Kopf: Logos, rote Menüleiste ---- */
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:20px;padding-bottom:18px;flex-wrap:wrap}
 .marke{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text)}
 .marke img{width:62px;height:auto}
 .marke .x{font:600 26px Oswald,sans-serif;color:var(--grau)}
@@ -47,12 +66,14 @@ h3{font-size:22px}
 .claim{font:400 22px/1.3 "Source Sans 3",sans-serif;color:var(--grau);text-align:right;max-width:420px}
 .claim b{color:var(--text)}
 nav.leiste{background:var(--rot);position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.15)}
-nav.leiste .wrap{display:flex;align-items:center;justify-content:space-between}
-nav.leiste ul{list-style:none;margin:0;padding:0;display:flex}
-nav.leiste a{display:block;color:#fff;text-decoration:none;font-weight:700;padding:16px 18px}
-nav.leiste a:hover,nav.leiste a:focus-visible{background:var(--rot-dunkel)}
+nav.leiste .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+nav.leiste ul{list-style:none;margin:0 0 0 -14px;padding:0;display:flex}
+nav.leiste ul a{display:block;color:#fff;text-decoration:none;font-weight:700;padding:16px 14px;position:relative}
+nav.leiste ul a:hover,nav.leiste ul a:focus-visible{background:var(--rot-dunkel)}
+nav.leiste ul a[aria-current]::after{content:"";position:absolute;left:14px;right:14px;bottom:8px;height:3px;border-radius:2px;background:#fff}
 .menuknopf{display:none;background:none;border:0;color:#fff;font:700 17px "Source Sans 3",sans-serif;padding:14px 0;cursor:pointer}
-.tag{font:600 13px "Source Sans 3";color:#fff;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:99px;white-space:nowrap}
+.nav-cta{background:#fff;color:var(--rot);font-weight:700;text-decoration:none;padding:8px 18px;border-radius:4px;white-space:nowrap;transition:background .15s,color .15s}
+.nav-cta:hover,.nav-cta:focus-visible{background:var(--nacht);color:#fff}
 
 /* ---- Hero ---- */
 .hero{position:relative;overflow:hidden;color:#fff;background:
@@ -65,14 +86,15 @@ nav.leiste a:hover,nav.leiste a:focus-visible{background:var(--rot-dunkel)}
 .hero p.lead{font-size:20px;max-width:580px;opacity:.92}
 .hero .rad{position:absolute;right:-120px;bottom:-140px;width:520px;opacity:.07;z-index:0}
 .knoepfe{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-block;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:4px;border:2px solid transparent;transition:transform .15s}
+.btn{display:inline-block;font:700 17px "Source Sans 3",sans-serif;text-decoration:none;padding:13px 24px;border-radius:4px;border:2px solid transparent;transition:transform .15s;cursor:pointer}
 .btn:hover{transform:translateY(-2px)}
 .btn-rot{background:var(--rot);color:#fff}
-.btn-rand{border-color:#fff;color:#fff}
+.btn-rand{border-color:#fff;color:#fff;background:none}
 .btn-indigo{background:var(--indigo);color:#fff}
 .hero-karte{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:26px;backdrop-filter:blur(4px)}
-.hero-karte .zahl{font:700 46px/1 Oswald,sans-serif;color:var(--neon)}
-.hero-karte .reihe{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.hero-karte .zahl{font:700 46px/1 Oswald,sans-serif;color:var(--neon);white-space:nowrap}
+.hero-karte .zahl small{font-size:.55em;margin-left:2px}
+.hero-karte .reihe{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}
 .hero-karte p{margin:.3em 0 0;font-size:15px;opacity:.85}
 .entwurf{display:inline-block;background:var(--neon);color:var(--nacht);font:700 12px "Source Sans 3";letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:16px}
 
@@ -82,7 +104,7 @@ section{padding:76px 0}
 .vorspann{max-width:720px;font-size:19px;color:#3d4148;margin-bottom:36px}
 .linie{width:64px;height:4px;background:var(--rot);margin:0 0 18px;border-radius:2px}
 .zwei{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.zitat{border-left:5px solid var(--rot);padding:8px 0 8px 22px;font:500 24px/1.35 Oswald,sans-serif;color:var(--indigo)}
+.zitat{border-left:5px solid var(--rot);padding:8px 0 8px 22px;margin:0;font:500 24px/1.35 Oswald,sans-serif;color:var(--indigo)}
 .zitat small{display:block;font:400 15px "Source Sans 3";color:var(--grau);margin-top:8px}
 
 /* Spiele */
@@ -114,6 +136,7 @@ section{padding:76px 0}
 .idee:nth-child(even) .ico{background:#ecebf7;color:var(--indigo)}
 .idee .ico svg{width:26px;height:26px}
 .idee p{margin:0;color:#4a4f57}
+.ideen.eins{grid-template-columns:1fr}
 
 /* Kick & Klick Band */
 .band{background:var(--indigo);color:#fff;position:relative;overflow:hidden}
@@ -127,13 +150,22 @@ section{padding:76px 0}
 .split .plus{font:700 40px Oswald,sans-serif;color:var(--neon)}
 
 /* Wochenplan */
-.woche{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.tagk{border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.tagk .kopfz{background:var(--rot);color:#fff;font:600 18px Oswald,sans-serif;padding:10px 16px;text-transform:uppercase}
+.woche{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tagk{border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 2px 14px rgba(20,20,60,.08);display:flex;flex-direction:column}
+.tagk .kopfz{background:var(--rot);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
 .tagk:nth-child(even) .kopfz{background:var(--indigo)}
-.tagk .rumpf{padding:14px 16px}
-.tagk .zeit{font-weight:700}
-.tagk p{margin:.2em 0 0;font-size:15px;color:#4a4f57}
+.tagk .kopfz b{font:600 20px Oswald,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.tagk .kopfz span{font-weight:700;font-size:15px;opacity:.95}
+.tagk .rumpf{padding:18px;flex:1;display:flex;flex-direction:column;gap:10px}
+.tagk h3{font-size:21px;margin:0}
+.tagk p{margin:0;font-size:15px;color:#4a4f57}
+.alter{align-self:flex-start;font:700 12px "Source Sans 3";letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+.a-kids{background:#fff3c4;color:#7a5a00}
+.a-alle{background:#d8f5e3;color:#0b6b3a}
+.a-16{background:#dcecfa;color:#0a5592}
+.a-fam{background:#ecebf7;color:var(--indigo)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.chips span{font-size:13px;font-weight:600;background:var(--hell);border:1px solid var(--rand);border-radius:6px;padding:3px 8px;color:#3d4148}
 
 /* Partner */
 .partner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
@@ -143,19 +175,56 @@ section{padding:76px 0}
 .pk ul{margin:0;padding-left:20px;color:#4a4f57}
 .pk.mitte{background:linear-gradient(160deg,#fff,#f2f1fb);border-color:#cfcdf0}
 
-/* Fahrplan */
-.fahrplan{list-style:none;margin:0;padding:0;counter-reset:s;position:relative}
-.fahrplan::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--rot),var(--indigo))}
-.fahrplan li{position:relative;padding:0 0 28px 70px;counter-increment:s}
-.fahrplan li::before{content:counter(s);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:#fff;border:3px solid var(--rot);display:grid;place-items:center;font:700 20px Oswald,sans-serif;color:var(--rot)}
+/* Ausstattung & Kosten */
+.kosten{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.kost{background:#fff;border-radius:12px;box-shadow:0 2px 14px rgba(20,20,60,.08);padding:26px;display:flex;flex-direction:column;border-top:4px solid var(--rot)}
+.kost:nth-child(2){border-top-color:var(--indigo)}
+.kost:nth-child(3){border-top-color:var(--neon)}
+.kost .stufe{font:700 12px "Source Sans 3";letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
+.kost h3{margin:.2em 0 .6em}
+.kost table{width:100%;border-collapse:collapse;font-size:15px;color:#3d4148}
+.kost td{padding:7px 0;border-bottom:1px solid var(--rand);vertical-align:top}
+.kost td:last-child{text-align:right;white-space:nowrap;padding-left:12px;font-weight:600}
+.kost .summe{margin-top:auto;padding-top:16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.kost .summe span{font-size:14px;color:var(--grau);font-weight:600}
+.kost .summe b{font:700 30px Oswald,sans-serif;color:var(--indigo)}
+.kost .tipp{font-size:14px;color:var(--grau);margin:12px 0 0}
+.foerder{margin-top:28px;background:var(--indigo);color:#fff;border-radius:12px;padding:28px 30px;display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}
+.foerder h3{color:#fff}
+.foerder p{margin:0;opacity:.9}
+.foerder ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+.foerder li{padding-left:22px;position:relative}
+.foerder li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:2px;background:var(--neon)}
+
+/* Fahrplan (horizontal) */
+.fahrplan{list-style:none;margin:8px 0 0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.fahrplan::before{content:"";position:absolute;left:24px;right:calc((100% - 84px)/4 - 24px);top:23px;height:3px;background:linear-gradient(90deg,var(--rot),var(--indigo))}
+.fahrplan li{position:relative;padding-top:72px;counter-increment:s}
+.fahrplan li::before{content:counter(s);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:#fff;border:3px solid var(--rot);display:grid;place-items:center;font:700 20px Oswald,sans-serif;color:var(--rot);z-index:1}
 .fahrplan li:nth-child(even)::before{border-color:var(--indigo);color:var(--indigo)}
+.fahrplan li.jetzt::before{background:var(--rot);color:#fff;box-shadow:0 0 0 6px rgba(217,15,22,.18)}
 .fahrplan h3{margin:.3em 0 .2em}
 .fahrplan p{margin:0;color:#4a4f57}
 .wann{font-size:14px;font-weight:700;color:var(--grau);text-transform:uppercase;letter-spacing:.05em}
+.hier{position:absolute;left:60px;top:11px;background:var(--neon);color:var(--nacht);font:700 12px "Source Sans 3";letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px;white-space:nowrap;z-index:1}
+.hier::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--nacht);margin-right:6px;vertical-align:1px;animation:puls 1.6s infinite}
+@keyframes puls{50%{opacity:.25}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;align-items:start}
+.faq details{background:#fff;border:1px solid var(--rand);border-radius:10px;padding:0 20px}
+.faq details[open]{border-color:#cfcdf0;box-shadow:0 2px 14px rgba(20,20,60,.06)}
+.faq summary{cursor:pointer;list-style:none;font:600 19px/1.3 Oswald,sans-serif;padding:16px 30px 16px 0;position:relative;color:var(--indigo)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font:700 24px Oswald,sans-serif;color:var(--rot);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;color:#4a4f57}
 
 /* Kontakt */
 .cta{background:var(--rot);color:#fff;text-align:center}
 .cta p{font-size:19px;max-width:680px;margin:0 auto 26px;opacity:.95}
+.cta .person{font-size:17px;margin:-8px auto 26px;opacity:1}
+.cta .person a{color:#fff;font-weight:700}
 .cta .btn-rand:hover{background:#fff;color:var(--rot)}
 
 footer{background:#1b1b22;color:#c9c9d2;font-size:15px;padding:44px 0 26px}
@@ -167,38 +236,93 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
 /* Einblenden beim Scrollen */
 .rein{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
 .rein.da{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rein{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.rein{opacity:1;transform:none}html{scroll-behavior:auto}.hier::before{animation:none}}
 
-/* ---- Handy ---- */
-@media (max-width:900px){
-  .hero .wrap,.zwei,.band .wrap{grid-template-columns:1fr}
-  .spiele,.ideen,.partner{grid-template-columns:1fr 1fr}
+/* ---- Tablet ---- */
+@media (max-width:980px){
+  .menuknopf{display:block}
+  nav.leiste ul{display:none;position:absolute;left:0;right:0;top:100%;margin:0;background:var(--rot);flex-direction:column;box-shadow:0 8px 16px rgba(0,0,0,.2)}
+  nav.leiste ul.offen{display:flex}
+  nav.leiste ul a{padding:14px 16px;border-top:1px solid rgba(255,255,255,.15)}
+  nav.leiste ul a[aria-current]::after{left:0;right:auto;top:0;bottom:0;width:4px;height:auto;border-radius:0}
+  .hero .wrap,.zwei,.band .wrap,.foerder{grid-template-columns:1fr}
+  .spiele,.ideen,.partner,.kosten{grid-template-columns:1fr 1fr}
   .woche{grid-template-columns:1fr 1fr}
+  .fahrplan{grid-template-columns:1fr 1fr;row-gap:40px}
+  .fahrplan::before{display:none}
   .claim{display:none}
   footer .wrap{grid-template-columns:1fr}
 }
+/* ---- Handy ---- */
 @media (max-width:700px){
-  .meta{display:none}
-  .menuknopf{display:block}
-  nav.leiste ul{display:none;position:absolute;left:0;right:0;top:100%;background:var(--rot);flex-direction:column;box-shadow:0 8px 16px rgba(0,0,0,.2)}
-  nav.leiste ul.offen{display:flex}
-  nav.leiste a{padding:14px 16px;border-top:1px solid rgba(255,255,255,.15)}
-  .spiele,.ideen,.partner,.woche{grid-template-columns:1fr}
+  .spiele,.ideen,.partner,.woche,.kosten,.faq,.foerder ul{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
   section{padding:56px 0}
   .marke img{width:48px}.vl{font-size:24px}.marke .x{font-size:20px}
+  .fahrplan{grid-template-columns:1fr;gap:0}
+  .fahrplan::before{display:block;left:23px;right:auto;top:8px;bottom:8px;width:3px;height:auto;background:linear-gradient(var(--rot),var(--indigo))}
+  .fahrplan li{padding:0 0 28px 70px}
+  .hier{position:static;display:inline-block;margin-bottom:6px}
+  .foerder{padding:24px 20px}
+}
+
+/* ---- Druck / PDF ---- */
+@media print{
+  @page{size:A4;margin:12mm 12mm 14mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{scroll-behavior:auto}
+  body{font-size:10.5pt;line-height:1.45}
+  nav.leiste,.knoepfe,.hero .rad,.nicht-drucken{display:none!important}
+  .nur-druck{display:block}
+  .rein{opacity:1!important;transform:none!important;transition:none!important}
+  .kopf{padding-top:0}
+  .claim{display:block!important;font-size:14pt}
+  section{padding:20px 0}
+  h2{font-size:20pt;break-after:avoid}
+  h3{font-size:13pt}
+  .vorspann{font-size:11.5pt;margin-bottom:14px}
+  .hero .wrap{grid-template-columns:1.2fr .8fr!important;padding:26px 16px}
+  .hero h1{font-size:30pt}
+  .hero p.lead{font-size:12pt}
+  .hero-karte{backdrop-filter:none;padding:16px}
+  .hero-karte .zahl{font-size:26pt}
+  .zwei,.band .wrap{grid-template-columns:1fr 1fr!important}
+  .spiele,.ideen,.partner,.kosten{grid-template-columns:repeat(3,1fr)!important;gap:12px}
+  .woche,.fahrplan{grid-template-columns:repeat(4,1fr)!important;gap:12px}
+  .faq{grid-template-columns:1fr 1fr!important}
+  .foerder{grid-template-columns:.8fr 1.2fr!important}
+  .foerder ul{grid-template-columns:1fr 1fr!important}
+  .cover{height:90px}
+  .cover svg{width:44px;height:44px}
+  .spiel,.spiel:hover,.tagk,.kost{box-shadow:none;transform:none;border:1px solid var(--rand)}
+  .spiel,.idee,.tagk,.pk,.kost,.fahrplan li,.faq details,.foerder,.zitat,.split{break-inside:avoid}
+  .ideen.eins{grid-template-columns:1fr 1fr!important}
+  .linie,.vorspann{break-after:avoid}
+  footer,.cta,.vorspann{break-inside:avoid}
+  #ausstattung{break-before:page}
+  .kost{padding:16px}
+  .kost table{font-size:9pt}
+  .kost .summe b{font-size:17pt}
+  .fahrplan::before{display:block!important;left:24px;right:calc((100% - 36px)/4 - 24px);top:23px;width:auto;height:3px;bottom:auto;background:linear-gradient(90deg,var(--rot),var(--indigo))}
+  .fahrplan li{padding:72px 0 0!important}
+  .hier{position:absolute!important}
+  .hier::before{animation:none}
+  .faq details{padding:0 14px}
+  .faq summary{padding:10px 0;font-size:12pt}
+  .faq summary::after{display:none}
+  .faq details p{margin-bottom:10px}
+  .cta{padding:24px 0}
+  footer{padding:20px 0 10px}
+  footer .wrap{grid-template-columns:1.2fr 1fr 1fr!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8.5pt;font-weight:400}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap meta">
-    <a href="#idee">Die Idee</a><a href="#spiele">Spiele</a><a href="#fahrplan">Fahrplan</a>
-    <a class="pill" href="#kontakt">Mitmachen</a>
-  </div>
   <div class="wrap kopf">
-    <a class="marke" href="#top" aria-label="Startseite">
+    <a class="marke" href="#top" aria-label="Zum Seitenanfang">
       <span class="vl">Villa Lampe<small>Soziales Netzwerk für junge Menschen</small></span>
       <span class="x" aria-hidden="true">×</span>
       <img src="img/wappen-sc1911.png" alt="Wappen 1. SC 1911 Heiligenstadt" width="62" height="72">
@@ -209,15 +333,16 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     <div class="wrap">
       <button class="menuknopf" aria-expanded="false" aria-controls="menu">☰ Menü</button>
       <ul id="menu">
-        <li><a href="#top">Start</a></li>
         <li><a href="#idee">Die Idee</a></li>
-        <li><a href="#spiele">Unsere Spiele</a></li>
+        <li><a href="#spiele">Spiele</a></li>
         <li><a href="#angebote">Angebote</a></li>
         <li><a href="#woche">Wochenplan</a></li>
         <li><a href="#partner">Partner</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#ausstattung">Ausstattung</a></li>
+        <li><a href="#fahrplan">Fahrplan</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
-      <span class="tag">Entwurf · Ideenpapier</span>
+      <a class="nav-cta" href="#kontakt">Mitmachen</a>
     </div>
   </nav>
 </header>
@@ -228,7 +353,7 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
   <svg class="rad" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="16"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="12"/></g><g stroke="#fff" stroke-width="16" stroke-linecap="round"><line x1="100" y1="22" x2="100" y2="178"/><line x1="32" y1="61" x2="168" y2="139"/><line x1="32" y1="139" x2="168" y2="61"/></g></svg>
   <div class="wrap">
     <div>
-      <span class="entwurf">Ideenpapier · Oktober 2026</span>
+      <span class="entwurf">Entwurf · Ideenpapier · Oktober 2026</span>
       <h1 id="h-hero">E-Sport für<br><span>Heiligenstadt</span></h1>
       <p class="lead">Zocken, trainieren, im Team gewinnen – und danach gemeinsam auf den Platz. Die Villa Lampe und der 1. SC 1911 Heiligenstadt holen den E-Sport in die Stadt. Für junge Menschen, mit jungen Menschen.</p>
       <div class="knoepfe">
@@ -238,10 +363,10 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     </div>
     <div class="hero-karte">
       <div class="reihe">
-        <div><div class="zahl">2</div><p>starke Partner aus Heiligenstadt</p></div>
+        <div><div class="zahl">0&nbsp;€</div><p>kostenlos für alle Jugendlichen</p></div>
         <div><div class="zahl">6</div><p>Spiele für den Start</p></div>
-        <div><div class="zahl">10+</div><p>ab 10 Jahren kann man mitmachen</p></div>
-        <div><div class="zahl">1</div><p>Team – online und auf dem Platz</p></div>
+        <div><div class="zahl"><small>ab</small> 10</div><p>Jahren kann man mitmachen</p></div>
+        <div><div class="zahl">3×</div><p>pro Woche feste Spielzeiten</p></div>
       </div>
     </div>
   </div>
@@ -258,7 +383,7 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     </div>
     <div class="rein">
       <blockquote class="zitat">„Wo die Liebe regiert, dort herrscht das Glück.“<small>Don Bosco – und wir ergänzen: wo das Team zusammenhält, da kommt der Sieg.</small></blockquote>
-      <div class="ideen" style="grid-template-columns:1fr;margin-top:28px">
+      <div class="ideen eins" style="margin-top:28px">
         <div class="idee"><h3>Offen für alle</h3><p>Kostenlos und ohne eigene Konsole. Mitmachen kann, wer Lust hat – Mädchen wie Jungen.</p></div>
         <div class="idee"><h3>Mit Jugendschutz</h3><p>Spiele nach USK-Freigabe, feste Spielzeiten, geschulte Betreuer.</p></div>
       </div>
@@ -354,10 +479,26 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     <h2 id="h-woche">So könnte eine Woche aussehen</h2>
     <p class="vorspann">Ein erster Vorschlag – passend zu den Öffnungszeiten der Villa Lampe.</p>
     <div class="woche">
-      <div class="tagk rein"><div class="kopfz">Montag</div><div class="rumpf"><div class="zeit">15:00 – 17:00</div><p>Kids-Zocken (10–13 J.)<br>Mario Kart, Rocket League</p></div></div>
-      <div class="tagk rein"><div class="kopfz">Mittwoch</div><div class="rumpf"><div class="zeit">17:00 – 19:00</div><p>EA SPORTS FC Training<br>mit SC-Trainer</p></div></div>
-      <div class="tagk rein"><div class="kopfz">Freitag</div><div class="rumpf"><div class="zeit">18:00 – 21:00</div><p>Team-Abend ab 16<br>Counter-Strike 2, LoL</p></div></div>
-      <div class="tagk rein"><div class="kopfz">1× im Monat</div><div class="rumpf"><div class="zeit">Samstag</div><p>Kick & Klick Cup<br>Erst Platz, dann Konsole</p></div></div>
+      <div class="tagk rein">
+        <div class="kopfz"><b>Montag</b><span>15–17 Uhr</span></div>
+        <div class="rumpf"><span class="alter a-kids">Kids · 10–13 Jahre</span><h3>Kids-Zocken</h3><p>Lockerer Einstieg, viel Spaß, kurze Runden.</p>
+          <div class="chips"><span>Mario Kart</span><span>Rocket League</span></div></div>
+      </div>
+      <div class="tagk rein">
+        <div class="kopfz"><b>Mittwoch</b><span>17–19 Uhr</span></div>
+        <div class="rumpf"><span class="alter a-alle">Alle ab 10 Jahren</span><h3>FC-Training</h3><p>Mit SC-Trainer: Aufstellung, Taktik, Turniervorbereitung.</p>
+          <div class="chips"><span>EA SPORTS FC</span></div></div>
+      </div>
+      <div class="tagk rein">
+        <div class="kopfz"><b>Freitag</b><span>18–21 Uhr</span></div>
+        <div class="rumpf"><span class="alter a-16">Ab 16 Jahren</span><h3>Team-Abend</h3><p>Feste Teams, Rollen, Absprache – Vorbereitung auf Ligen.</p>
+          <div class="chips"><span>Counter-Strike 2</span><span>League of Legends</span></div></div>
+      </div>
+      <div class="tagk rein">
+        <div class="kopfz"><b>Samstag</b><span>1× im Monat</span></div>
+        <div class="rumpf"><span class="alter a-fam">Für alle · auch Eltern</span><h3>Kick &amp; Klick Cup</h3><p>Erst auf den Platz, dann an die Konsole. Punkte zählen doppelt.</p>
+          <div class="chips"><span>Fußballplatz</span><span>EA SPORTS FC</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -378,16 +519,74 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
   </div>
 </section>
 
-<section id="fahrplan" class="grau" aria-labelledby="h-fahrplan">
-  <div class="wrap zwei">
-    <div>
-      <div class="linie"></div>
-      <h2 id="h-fahrplan">Der Fahrplan</h2>
-      <p class="vorspann">Klein anfangen, gut machen, dann wachsen.</p>
-      <p>Wir müssen nicht alles auf einmal stemmen. Ein erstes Turnier zeigt schnell, wie groß das Interesse ist – danach entscheiden wir den nächsten Schritt.</p>
+<section id="ausstattung" class="grau" aria-labelledby="h-ausstattung">
+  <div class="wrap">
+    <div class="linie"></div>
+    <h2 id="h-ausstattung">Was brauchen wir?</h2>
+    <p class="vorspann">Technik muss nicht auf einen Schlag da sein. Für das erste Turnier reicht ein kleines Startpaket – den Rest bauen wir auf, wenn das Interesse da ist.</p>
+    <div class="kosten">
+      <div class="kost rein">
+        <span class="stufe">Stufe 1 · Frühjahr 2027</span>
+        <h3>Startpaket</h3>
+        <table>
+          <tr><td>2 Konsolen inkl. 4 Controller</td><td>ca. 1.000 €</td></tr>
+          <tr><td>2 Monitore oder TVs</td><td>ca. 400 €</td></tr>
+          <tr><td>Spiele (Rocket League ist gratis)</td><td>ca. 80 €</td></tr>
+          <tr><td>Kabel, Steckdosenleisten, Kleinkram</td><td>ca. 70 €</td></tr>
+        </table>
+        <div class="summe"><span>Summe</span><b>ca. 1.550 €</b></div>
+        <p class="tipp">Tipp: Fürs erste Turnier Geräte leihen (Eltern, Mitglieder) – dann kostet der Test fast nichts.</p>
+      </div>
+      <div class="kost rein">
+        <span class="stufe">Stufe 2 · ab Sommer 2027</span>
+        <h3>Fester Betrieb</h3>
+        <table>
+          <tr><td>4 Gaming-PCs mit Monitor</td><td>ca. 4.800 €</td></tr>
+          <tr><td>Headsets, Mäuse, Tastaturen</td><td>ca. 600 €</td></tr>
+          <tr><td>2 weitere Konsolen</td><td>ca. 1.000 €</td></tr>
+          <tr><td>Tische, Stühle, Beleuchtung</td><td>ca. 800 €</td></tr>
+        </table>
+        <div class="summe"><span>Summe</span><b>ca. 7.200 €</b></div>
+        <p class="tipp">PCs braucht es nur für Counter-Strike 2 und League of Legends.</p>
+      </div>
+      <div class="kost rein">
+        <span class="stufe">Laufend</span>
+        <h3>Pro Jahr</h3>
+        <table>
+          <tr><td>Online-Abos für Konsolen</td><td>ca. 240 €</td></tr>
+          <tr><td>Neue Spielversionen (z. B. FC)</td><td>ca. 150 €</td></tr>
+          <tr><td>Turniere: Preise &amp; Verpflegung</td><td>ca. 400 €</td></tr>
+          <tr><td>Internet &amp; Strom</td><td>klären</td></tr>
+        </table>
+        <div class="summe"><span>Summe</span><b>ca. 800 €</b></div>
+        <p class="tipp">Wichtig: stabile Internetleitung in der Villa Lampe vorab prüfen.</p>
+      </div>
     </div>
+    <div class="foerder rein">
+      <div>
+        <h3>Wie wir das finanzieren</h3>
+        <p>Jugendarbeit, Medienbildung und Sport zusammen – genau das, was Förderer gern unterstützen. Die Anträge stellen wir gemeinsam.</p>
+      </div>
+      <ul>
+        <li>Jugendförderung des Landkreises Eichsfeld</li>
+        <li>Landesprogramme Thüringen für Jugendarbeit &amp; Medienbildung</li>
+        <li>Stiftungen und Spendenaktionen der regionalen Banken</li>
+        <li>Sponsoren aus Heiligenstadt (Trikot, Banner, Turnierpreise)</li>
+        <li>Spendenaktion beim Vereinsfest</li>
+        <li>Startgeld bei offenen Erwachsenen-Turnieren</li>
+      </ul>
+    </div>
+    <p class="hinweis">Alle Beträge sind grobe Richtwerte (Stand Oktober 2026) und vor einer Anschaffung zu prüfen. Förderprogramme und Fristen klären wir im nächsten Schritt.</p>
+  </div>
+</section>
+
+<section id="fahrplan" aria-labelledby="h-fahrplan">
+  <div class="wrap">
+    <div class="linie"></div>
+    <h2 id="h-fahrplan">Der Fahrplan</h2>
+    <p class="vorspann">Klein anfangen, gut machen, dann wachsen. Ein erstes Turnier zeigt schnell, wie groß das Interesse ist – danach entscheiden wir den nächsten Schritt.</p>
     <ol class="fahrplan">
-      <li class="rein"><span class="wann">Herbst 2026</span><h3>Kennenlernen</h3><p>Treffen von Villa Lampe und SC 1911. Ziele, Zuständigkeiten, erste Ideen.</p></li>
+      <li class="rein jetzt" aria-current="step"><span class="hier">Wir sind hier</span><span class="wann">Herbst 2026</span><h3>Kennenlernen</h3><p>Treffen von Villa Lampe und SC 1911. Ziele, Zuständigkeiten, erste Ideen.</p></li>
       <li class="rein"><span class="wann">Winter 2026/27</span><h3>Jugendliche fragen</h3><p>Umfrage und Ideen-Abend: Was spielt ihr? Was wünscht ihr euch?</p></li>
       <li class="rein"><span class="wann">Frühjahr 2027</span><h3>Erstes Turnier</h3><p>Ein EA SPORTS FC Cup in der Villa Lampe – mit Kick & Klick.</p></li>
       <li class="rein"><span class="wann">Ab Sommer 2027</span><h3>Fester Betrieb</h3><p>Wöchentliche Trainingsabende, Technik, ggf. eigene E-Sport-Abteilung beim SC.</p></li>
@@ -395,13 +594,32 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
   </div>
 </section>
 
+<section id="faq" class="grau" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="linie"></div>
+    <h2 id="h-faq">Fragen von Eltern</h2>
+    <p class="vorspann">Die wichtigsten Antworten vorab. Alles Weitere besprechen wir gern beim Eltern-Abend.</p>
+    <div class="faq">
+      <details><summary>Kostet das etwas?</summary><p>Nein. Die Angebote sind für Kinder und Jugendliche kostenlos. Eine eigene Konsole oder ein eigener PC ist nicht nötig – die Technik stellen wir.</p></details>
+      <details><summary>Wer passt auf?</summary><p>Pädagogische Fachkräfte der Villa Lampe und geschulte Betreuer und Trainer des 1. SC 1911. Kein Angebot läuft ohne Aufsicht.</p></details>
+      <details><summary>Wie lange wird gespielt?</summary><p>Zu festen Zeiten, höchstens zwei bis drei Stunden am Stück – mit Pausen, Bewegung und Teambesprechung. Kein offenes Dauerzocken.</p></details>
+      <details><summary>Was ist mit In-Game-Käufen?</summary><p>Bei uns wird nichts gekauft. Gespielt wird über Accounts der Einrichtung, ohne hinterlegte Zahlungsdaten. Kostenfallen sind außerdem Thema bei der Medienkompetenz.</p></details>
+      <details><summary>Welche Spiele dürfen Kinder spielen?</summary><p>Wir halten uns strikt an die USK-Altersfreigaben. Spiele ab 16 gibt es nur in der Gruppe ab 16 – auch mit Einverständnis der Eltern nicht früher.</p></details>
+      <details><summary>Muss mein Kind im Verein sein?</summary><p>Nein. Mitmachen kann jede und jeder. Wer möchte, kann später in eine E-Sport- oder Fußballmannschaft des SC wechseln.</p></details>
+      <details><summary>Wird gestreamt oder gefilmt?</summary><p>Nur, wenn Jugendliche das wollen und die Eltern schriftlich zustimmen. Ohne Einverständnis erscheint niemand mit Bild oder Namen im Netz.</p></details>
+      <details><summary>Macht Zocken nicht faul?</summary><p>Deshalb gibt es Kick &amp; Klick: Bewegung gehört bei uns fest dazu. Und gemeinsames Spielen mit Regeln ist etwas anderes als allein im Kinderzimmer.</p></details>
+    </div>
+  </div>
+</section>
+
 <section id="kontakt" class="cta" aria-labelledby="h-kontakt">
   <div class="wrap">
     <h2 id="h-kontakt">Gefällt euch das?</h2>
     <p>Das hier ist ein erster Entwurf des 1. SC 1911 Heiligenstadt. Wir würden gern mit der Villa Lampe darauf aufbauen – lasst uns zusammensetzen.</p>
+    <p class="person">Ansprechpartner: <b>Michel Brunner</b> · <a href="mailto:Michel_Brunner@gmx.de">Michel_Brunner@gmx.de</a></p>
     <div class="knoepfe" style="justify-content:center">
-      <a class="btn btn-rand" href="mailto:?subject=E-Sport%20Heiligenstadt">Schreib uns</a>
-      <a class="btn btn-indigo" href="#top">Nach oben</a>
+      <a class="btn btn-rand" href="mailto:Michel_Brunner@gmx.de?subject=E-Sport%20Heiligenstadt%20%E2%80%93%20Villa%20Lampe%20%C3%97%201.%20SC%201911">Schreib uns</a>
+      <button class="btn btn-indigo" type="button" onclick="window.print()">Als PDF speichern</button>
     </div>
   </div>
 </section>
@@ -413,6 +631,7 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     <div>
       <h4>E-Sport Heiligenstadt</h4>
       <p>Ein Ideenpapier für junge Menschen in Heilbad Heiligenstadt. Gemeinsam von Villa Lampe und 1. SC 1911.</p>
+      <p class="nur-druck">Online: tecko1985.github.io/villa-lampe-esport</p>
     </div>
     <div>
       <h4>Villa Lampe</h4>
@@ -420,7 +639,7 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
     </div>
     <div>
       <h4>1. SC 1911 Heiligenstadt</h4>
-      <p>Fußball in Heilbad Heiligenstadt<br>seit 1911</p>
+      <p>Fußball in Heilbad Heiligenstadt<br>seit 1911<br>Kontakt: <a href="mailto:Michel_Brunner@gmx.de">Michel Brunner</a></p>
     </div>
     <div class="fuss">Entwurf – nicht öffentlich abgestimmt. Spielenamen sind Marken ihrer Hersteller und dienen nur der Beschreibung.</div>
   </div>
@@ -431,9 +650,19 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
 const knopf=document.querySelector('.menuknopf'),menu=document.getElementById('menu');
 knopf.addEventListener('click',()=>{const auf=menu.classList.toggle('offen');knopf.setAttribute('aria-expanded',auf)});
 menu.addEventListener('click',e=>{if(e.target.tagName==='A'){menu.classList.remove('offen');knopf.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('offen')){menu.classList.remove('offen');knopf.setAttribute('aria-expanded','false');knopf.focus()}});
+
 // Einblenden beim Scrollen
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('da');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rein').forEach(el=>io.observe(el));
+
+// Aktiven Menüpunkt markieren
+const links=[...menu.querySelectorAll('a')];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+links.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)spy.observe(s)});
+
+// Druck: alles sichtbar, FAQ aufklappen
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('.rein').forEach(el=>el.classList.add('da'));document.querySelectorAll('details').forEach(d=>d.open=true)});
 </script>
 </body>
 </html>
