@@ -13,7 +13,7 @@ Lokal ansehen: `index.html` im Browser öffnen.
 
 ## Weihnachts-Cup 2026 (`weihnachtscup/`)
 
-Anmeldeseite für das 2-gegen-2-Turnier in EA SPORTS FC 27.
+Anmeldeseite für das 2-gegen-2-Turnier in EA SPORTS FC 26.
 
 - `weihnachtscup/index.html` – Seite mit Formular, Live-Plätzen, Teamliste, Abmeldung
 - `weihnachtscup/backend/anmeldung.gs` – Google-Apps-Script, speichert in einer Google-Tabelle
