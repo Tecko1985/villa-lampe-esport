@@ -10,3 +10,12 @@ Ideenpapier als Webseite: ein gemeinsames E-Sport-Angebot von **Villa Lampe** un
 Status: **Entwurf** – per `noindex` aus Suchmaschinen herausgehalten. Vor dem offiziellen Start die Zeile `<meta name="robots" …>` in `index.html` entfernen.
 
 Lokal ansehen: `index.html` im Browser öffnen.
+
+## Weihnachts-Cup 2026 (`weihnachtscup/`)
+
+Anmeldeseite für das 2-gegen-2-Turnier in EA SPORTS FC 27.
+
+- `weihnachtscup/index.html` – Seite mit Formular, Live-Plätzen, Teamliste, Abmeldung
+- `weihnachtscup/backend/anmeldung.gs` – Google-Apps-Script, speichert in einer Google-Tabelle
+- `weihnachtscup/backend/EINRICHTUNG.md` – Schritt-für-Schritt-Anleitung zum Freischalten
+- `weihnachtscup/qr/` – QR-Codes für den Flyer (SVG für Druck, PNG, gebrandete Karte)
