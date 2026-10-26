@@ -72,13 +72,13 @@ function anmelden_(d) {
   const sh = blatt_();
   if (sh.getLastRow() === 0) einrichten();
   const zeilen = daten_(sh);
-  const aktiv = zeilen.filter(z => z[S.STATUS] !== ABGEMELDET);
+  const aktiv = zeilen.filter(z => !istStatus_(z, ABGEMELDET));
   const name = t.team.toLowerCase();
   if (aktiv.some(z => String(z[S.TEAM]).toLowerCase() === name)) {
     return { ok: false, fehler: 'Diesen Teamnamen gibt es schon – nehmt bitte einen anderen.' };
   }
 
-  const belegt = aktiv.filter(z => z[S.STATUS] === ANGEMELDET).length;
+  const belegt = aktiv.filter(z => istStatus_(z, ANGEMELDET)).length;
   const status = belegt < MAX_TEAMS ? ANGEMELDET : WARTELISTE;
   const vorhanden = new Set(zeilen.map(z => z[S.CODE]));
   let code; do { code = neuerCode_(); } while (vorhanden.has(code));
@@ -99,18 +99,18 @@ function abmelden_(d) {
   const norm = v => String(v || '').replace(/^'/, '').replace(/\s+/g, '').toLowerCase();
   const kontakt = norm(d.kontakt);
   const sh = blatt_(), zeilen = daten_(sh);
-  const i = zeilen.findIndex(z => z[S.CODE] === code && z[S.STATUS] !== ABGEMELDET);
+  const i = zeilen.findIndex(z => z[S.CODE] === code && !istStatus_(z, ABGEMELDET));
   if (i < 0 || !kontakt || norm(zeilen[i][S.KONTAKT]) !== kontakt) {
     return { ok: false, fehler: 'Code und Kontakt passen nicht zusammen.' };
   }
-  const warAngemeldet = zeilen[i][S.STATUS] === ANGEMELDET;
+  const warAngemeldet = istStatus_(zeilen[i], ANGEMELDET);
   sh.getRange(i + 2, S.STATUS + 1).setValue(ABGEMELDET);
   sh.getRange(i + 2, S.BEM + 1).setValue('selbst abgemeldet ' + Utilities.formatDate(new Date(), 'Europe/Berlin', 'dd.MM. HH:mm'));
   let nachgerueckt = '';
 
   // Erstes Team der Warteliste rückt nach
   if (warAngemeldet) {
-    const w = zeilen.findIndex(z => z[S.STATUS] === WARTELISTE);
+    const w = zeilen.findIndex(z => istStatus_(z, WARTELISTE));
     if (w >= 0) {
       sh.getRange(w + 2, S.STATUS + 1).setValue(ANGEMELDET);
       sh.getRange(w + 2, S.BEM + 1).setValue('von Warteliste nachgerückt');
@@ -122,15 +122,19 @@ function abmelden_(d) {
 }
 
 // ---------- Hilfsfunktionen ----------
+// Status von Hand getippt („Angemeldet“, „ warteliste “): Groß/Klein und Leerzeichen egal (E1-F5).
+function statusNorm_(v) { return String(v == null ? '' : v).replace(/\s+/g, '').toLowerCase(); }
+function istStatus_(z, s) { return statusNorm_(z[S.STATUS]) === statusNorm_(s); }
+
 function status_() {
   const zeilen = daten_(blatt_());
-  const angemeldet = zeilen.filter(z => z[S.STATUS] === ANGEMELDET);
+  const angemeldet = zeilen.filter(z => istStatus_(z, ANGEMELDET));
   return {
     ok: true,
     offen: offen_(),
     max: MAX_TEAMS,
     belegt: angemeldet.length,
-    warteliste: zeilen.filter(z => z[S.STATUS] === WARTELISTE).length,
+    warteliste: zeilen.filter(z => istStatus_(z, WARTELISTE)).length,
     teams: angemeldet.map(z => String(z[S.TEAM]).replace(/^'/, '')),
   };
 }
