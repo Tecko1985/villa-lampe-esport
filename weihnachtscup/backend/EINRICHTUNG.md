@@ -34,7 +34,7 @@ Oben in `anmeldung.gs`:
 
 | Einstellung | Bedeutung |
 |---|---|
-| `MAX_TEAMS` | Plätze, danach Warteliste (Standard 16) |
+| `MAX_TEAMS` | Plätze, danach Warteliste (Standard 30) |
 | `ANMELDUNG_OFFEN` | `false` schließt die Anmeldung sofort |
 | `ANMELDESCHLUSS` | z. B. `'2026-12-17T23:59'` – danach automatisch zu |
 | `BENACHRICHTIGUNG` | Mail an Dich bei jeder An- und Abmeldung |

@@ -7,7 +7,7 @@
  */
 
 // ---------- Einstellungen ----------
-const MAX_TEAMS        = 16;      // danach geht es auf die Warteliste
+const MAX_TEAMS        = 30;      // danach geht es auf die Warteliste
 const ANMELDUNG_OFFEN  = true;    // false = Formular geschlossen
 const ANMELDESCHLUSS   = '';      // z. B. '2026-12-17T23:59' – leer = kein Schluss
 const BENACHRICHTIGUNG = true;    // Mail an Dich bei jeder An-/Abmeldung
