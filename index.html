@@ -270,6 +270,13 @@ footer .fuss{grid-column:1/-1;border-top:1px solid #33333d;padding-top:18px;font
   .foerder{padding:24px 20px}
 }
 
+/* ---- Handy quer (niedriger Schirm): Kopf und Hero kürzen, damit der Titel ohne Wischen im Bild steht ---- */
+@media (orientation:landscape) and (max-height:500px){
+  .kopf{padding-top:8px;padding-bottom:8px}
+  .hero{padding:0}
+  .hero .wrap{padding-top:min(72px,6vh);padding-bottom:min(84px,10vh)}
+}
+
 /* ---- Druck / PDF ---- */
 @media print{
   @page{size:A4;margin:12mm 12mm 14mm}

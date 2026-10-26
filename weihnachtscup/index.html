@@ -178,6 +178,8 @@ details.box form .btn{font-size:17px;padding:12px}
 .baum{display:grid;grid-template-columns:repeat(3,minmax(200px,1fr));column-gap:44px;min-width:700px;color:#fff}
 .baum .titel{font:600 15px Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--neon);margin-bottom:10px}
 .runde{display:flex;flex-direction:column;height:400px;position:relative}
+/* Handy quer: niedriger, aber nie unter 340px -- darunter ragen Spiele aus dem Turnierbaum */
+.runde{height:max(340px,min(400px,62vh))}
 .paar{flex:1;display:flex;flex-direction:column;justify-content:space-around;position:relative}
 .paar::after{content:"";position:absolute;right:-24px;width:58px;top:25%;bottom:25%;border:2px solid rgba(255,255,255,.35);border-left:0;border-radius:0 8px 8px 0}
 .paar.ohne::after{display:none}
